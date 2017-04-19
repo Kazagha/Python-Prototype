@@ -27,4 +27,13 @@ for lineNum in range(len(lineList)):
             if(lineNum - 1 >= 0 and lineList[lineNum - 1][charNum].islower()):
                 n = 1
             
+            # Check to the South
+            
+            # Check to the East
+            
+            # Check to the West
+            
+            # Check if 3/4 checks have been successful 
+            
+                # Append the character to the results string
           
