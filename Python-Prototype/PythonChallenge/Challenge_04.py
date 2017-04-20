@@ -44,7 +44,13 @@ for lineNum in range(len(lineList)):
                 s = 1         
             
             # Check to the East
-            if(charNum < 76 and charNum > 3):            
+            if(charNum < 76 and charNum > 3
+               and lineList[lineNum][charNum - 4].islower()
+               and lineList[lineNum][charNum - 3:charNum].isupper()
+               and lineList[lineNum][charNum].islower()
+               and lineList[lineNum][charNum + 1:charNum + 4].isupper()
+               and lineList[lineNum][charNum + 4].islower()
+               ):            
                #and lineList[lineNum][charNum:charNum + 3].isupper()):
                 e = 1
                 print(lineList[lineNum][charNum - 4],lineList[lineNum][charNum - 3:charNum], lineList[lineNum][charNum],lineList[lineNum][charNum + 1:charNum + 4],lineList[lineNum][charNum + 4])
@@ -60,10 +66,10 @@ for lineNum in range(len(lineList)):
             #print(n,s,e,w)  
                                                 
             # Check if 3/4 checks have been successful 
-            if(n + s + e + w == 4): 
+            if(e == 1): 
                 # Append the character to the results string
                 result = result + currChar
-                print(n,s,e,w)  
+                #print(n,s,e,w)  
                 #print(currChar,lineList[lineNum][charNum - 1],lineList[lineNum][charNum - 3],lineList[lineNum][charNum - 3])                   
 # Print the result
 print('Length: ',len(result), 'Result: ', result)
