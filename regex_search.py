@@ -16,11 +16,12 @@ def _load_files_in_dir(directory):
 
 def _search_files(files, REGEX):
     for f in files:
-        search_result = REGEX.findall(f.result)
+        search_result = REGEX.finditer(f.result)
         #print(f.result, REGEX.findall(f.result))
-        if(len(search_result) > 0):
-            for result in search_result:
-                yield Match(f.file_name, REGEX, result)
+
+        #if(len(search_result) > 0):
+        for result in search_result:
+            yield Match(f.file_name, REGEX, result.group(0))
 
 def _search_text(text):
     pass
@@ -38,15 +39,13 @@ def _write_to_csv(data ,filename):
 
 def search_files(search_dir, regex, output=None):
     files = _load_files_in_dir(search_dir)
-    REGEX = re.compile(r'Application_Tasks.(Task_Description|Task_Code).{0,3}(=|Like).{0,3}".+?"')
+
+    pattern = r'(Application_Tasks.(Task_Code|Task_Description).{0,3}(=|Like).{0,3}".+?")'
+    REGEX = re.compile(pattern=pattern)
 
     results = _search_files(files, REGEX)
 
-    #for r in results:
-    #    print (r)
-
     _write_to_csv(results, output)
-
 
 if __name__ == '__main__':
     #in_dir, out_dir = sys.argv[1:2]
