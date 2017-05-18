@@ -38,7 +38,7 @@ def _write_to_csv(data ,filename):
 
 def search_files(search_dir, regex, output=None):
     files = _load_files_in_dir(search_dir)
-    REGEX = re.compile(r'Application_Tasks\.(Task_Description|Task_Code).{0,3}=.{0,2}".+?"')
+    REGEX = re.compile(r'Application_Tasks.(Task_Description|Task_Code).{0,3}(=|Like).{0,3}".+?"')
 
     results = _search_files(files, REGEX)
 
