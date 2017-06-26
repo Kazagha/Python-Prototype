@@ -6,7 +6,7 @@ class spell:
 
     def __enter__(self):
         print('Incanting...')
-        #self.damage = 2
+        self.damage = self.damage +  2
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):

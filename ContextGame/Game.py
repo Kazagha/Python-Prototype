@@ -33,12 +33,16 @@ if __name__ == "__main__":
     with the_game.player as char:
         print(char.name)
 
-        fireball = spell('Fireball', damage=10)
-        icebolt = spell('Icebolt', damage=5)
+        #fireball = spell('Fireball', damage=10)
+        #icebolt = spell('Icebolt', damage=5)
 
-        print(f'{fireball.damage} vs {icebolt.damage}')
+        #print(f'{fireball.damage} vs {icebolt.damage}')
 
-        with cast(fireball) as c:
-            with cast(c, icebolt) as d:
-                print(f'{c.damage} vs. {d.damage}')
-                d.cast()
+        #with cast(fireball) as c:
+        #    with cast(c, icebolt) as d:
+        #        print(f'{c.damage} vs. {d.damage}')
+        #        d.cast()
+
+        with spell('Fireball', damage=10) as f:
+            #print(f.damage)
+            f.cast()
