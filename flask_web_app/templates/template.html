@@ -1,0 +1,39 @@
+<!doctype html>
+
+<!-- some boilerplate, delete or modify as you wish -->
+
+<!--- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> --->
+
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Enter Here</h1>
+        <p>This is a test</p>
+    </div>
+</div>
+
+<table class="centered thick-border">
+	<tr>
+		<th>{{ col1 }}</th>
+		<th>{{ col2 }}</th>
+	</tr>
+	{% for k, v in data.items() %}
+		<tr>
+			<td>{{ k }}</td>
+			<td>{{ v }}</td>
+		</tr>		
+	{% endfor %}
+
+</table>
+
+Count:
+{% for i in range(1,10) %}
+
+    {{ i }}
+    {% endfor %}
+<br>
+<!--- Images: <img src="{{url_for('static', filename='images/170515_011104.jpg')}}" style='width:250px;height:250px' /> --->
+
