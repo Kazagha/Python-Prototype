@@ -16,32 +16,57 @@
 </div>
 
 <div class="container">
+
+    <!---
+
     <table class="centered thick-border">
         <tr>
-            <th>{{ col1 }}</th>
+            <th><h4>{{ col1 }}</h4></th>
             <th>{{ col2 }}</th>
         </tr>
-        <!---
+
         {% for k, v in data.items() %}
             <tr>
                 <td>{{ k }}</td>
                 <td>{{ v }}</td>
             </tr>
         {% endfor %}
-        --->
 
+        <div class="btn-group-vertical" role="group" aria-label="...">
         {% for item in activities %}
 
             <tr>
                 <td>{{ item }}</td>
             </tr>
+
+        </div>
+
         {% endfor %}
 
     </table>
 
+    --->
+
+    <h3>Select activity</h3>
+    <div class="btn-group" role="group" aria-label="...">
+    {% for item in activities %}
+        <button type="button" class="btn btn-default"> {{ item }} </button>
+    {% endfor %}
+    </div>
     <br>
+    <br>
+    <form action="/submit", method="post">
+    <label for="inputName" class="sr-only">Name</label>
+        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <input type="submit" value="Execute" />
+    <br>
+    <p><a class="btn btn-primary" href="submit" role="button">Submit</a></p>
+    </form>
+    <!---
     <button type="button" class="btn btn-default">Sign up</button>
     <button type="button" class="btn btn-default">Sign in</button>
+    --->
+
 </div>
 <br>
 
