@@ -5,35 +5,46 @@
 <!--- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> --->
 
 <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
+<br>
 <div class="container">
     <div class="jumbotron">
-        <h1>Enter Here</h1>
-        <p>This is a test</p>
+        <h1>Down Time Tracker</h1>
+        <p>Basic web app to track down time activities</p>
     </div>
 </div>
 
-<table class="centered thick-border">
-	<tr>
-		<th>{{ col1 }}</th>
-		<th>{{ col2 }}</th>
-	</tr>
-	{% for k, v in data.items() %}
-		<tr>
-			<td>{{ k }}</td>
-			<td>{{ v }}</td>
-		</tr>		
-	{% endfor %}
+<div class="container">
+    <table class="centered thick-border">
+        <tr>
+            <th>{{ col1 }}</th>
+            <th>{{ col2 }}</th>
+        </tr>
+        <!---
+        {% for k, v in data.items() %}
+            <tr>
+                <td>{{ k }}</td>
+                <td>{{ v }}</td>
+            </tr>
+        {% endfor %}
+        --->
 
-</table>
+        {% for item in activities %}
 
-Count:
-{% for i in range(1,10) %}
+            <tr>
+                <td>{{ item }}</td>
+            </tr>
+        {% endfor %}
 
-    {{ i }}
-    {% endfor %}
+    </table>
+
+    <br>
+    <button type="button" class="btn btn-default">Sign up</button>
+    <button type="button" class="btn btn-default">Sign in</button>
+</div>
 <br>
+
+
 <!--- Images: <img src="{{url_for('static', filename='images/170515_011104.jpg')}}" style='width:250px;height:250px' /> --->
 
