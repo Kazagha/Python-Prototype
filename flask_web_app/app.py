@@ -31,14 +31,18 @@ def sign_up():
 def sign_in():
     return render_template("sign_up.html")
 
-@app.route('/submit',methods=['POST'])
+@app.route('/submit', methods=['POST'])
 def submit():
-    print(f'Submitting data')
+    if request.method=='GET':
+        print('GET-Method')
+        return render_template("sign_up.html")
+    else:
+        print('Posting')
+        print(f"Get Name: {request.form.get('name')}")
+    #print(f'Submitting data')
 
-    _name = request.form['inputName']
-
-    #return render_template('sign_up.html')
-
+    #_name = request.form['inputName']
+    return render_template("sign_up.html")
 
 def get_lib():
     """Return a basic library

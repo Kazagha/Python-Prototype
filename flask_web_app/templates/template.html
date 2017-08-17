@@ -55,16 +55,18 @@
     </div>
     <br>
     <br>
-    <form action="/submit", method="post">
-    <label for="inputName" class="sr-only">Name</label>
-        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
-        <input type="submit" value="Execute" />
-    <br>
-    <p><a class="btn btn-primary" href="submit" role="button">Submit</a></p>
+    <form action="/submit" method="post">
+        <label>Enter Name: </label>
+        <input type="text" name="name" value="{{ request.form['name'] }}" />
+        <br>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <br>
     </form>
     <!---
     <button type="button" class="btn btn-default">Sign up</button>
     <button type="button" class="btn btn-default">Sign in</button>
+    <p><a class="btn btn-primary"  href="test" role="button">Submit</a></p>
+    <input type="text" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
     --->
 
 </div>
