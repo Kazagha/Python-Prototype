@@ -1,19 +1,24 @@
 <!doctype html>
 
-<!-- some boilerplate, delete or modify as you wish -->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
-    <!--- Bootstrap --->
-    <link href="/static/css/bootstrap.css" rel="stylesheet">
-</head>
 <!--- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> --->
 <!---
 <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 --->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Down Time Trackre
+    </title>
+</head>
+
+
 <body>
 <br>
 <div class="container">
@@ -55,106 +60,27 @@
 
     --->
 
-    <h3>Select activity</h3>
-    <div class="btn-group" role="group" aria-label="...">
-    {% for item in activities %}
-        <button type="button" class="btn btn-default"> {{ item }} </button>
-    {% endfor %}
-    </div>
-    <br>
-    <br>
-    <form action="/submit" method="post">
-        <label>Enter Name: </label>
-        <input type="text" name="name" placeholder="user" value="{{ request.form['name'] }}" />
+    <form action="/" method="POST">
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon1">Name</span>
+            <input type="text" name="name" placeholder="username" class="form-control" value="{{ request.form['name'] }}" />
+        </div>
         <br>
-        <label>Duration: </label>
-        <input type="text" name="duration" placeholder="1" value="{{ request.form['duration'] }}" />
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2">Activity</span>
+            <input type="text" name="activity" placeholder="Relaxing" class="form-control" value="{{ request.form['activity'] }}" />
+        </div>
         <br>
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-            Select Action <span class="caret"></span>
-
-        </button>
-
-        <br><br>
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon3">Duration</span>
+            <input type="text" name="duration" placeholder="1 day" class="form-control" value="{{ request.form['duration'] }}" />
+        </div>
+        <br>
         <button type="submit" class="btn btn-success">Submit</button>
         <br>
     </form>
-    <!---
-    <button type="button" class="btn btn-default">Sign up</button>
-    <button type="button" class="btn btn-default">Sign in</button>
-    <p><a class="btn btn-primary"  href="test" role="button">Submit</a></p>
-    <input type="text" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
-    --->
 
 </div>
-<br>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
-  </div>
-  <div class="panel-body">
-    Panel content
-  </div>
-</div>
-<br>
-<div class="panel panel-default">
-  <div class="panel-body">
-    Basic panel example
-  </div>
-</div>
-
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button"  data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--- Images: <img src="{{url_for('static', filename='images/170515_011104.jpg')}}" style='width:250px;height:250px' /> --->
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/static/js/bootstrap.min.js"></script>
 
 </body>
 </html>
